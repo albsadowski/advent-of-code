@@ -33,3 +33,6 @@ ifeq ($(year), 2024)
 	$(TMP_DIR)/day$(day) $(INPUT) && \
 	cd ..
 endif
+ifeq ($(year), 2025)
+	cd 2025 && python3 day$(day).py $(INPUT) && cd ..
+endif
