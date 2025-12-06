@@ -1,7 +1,15 @@
+import sys
+
+from functools import reduce
 from typing import Iterator
 
 
 Board = list[list[str]]
+
+
+def read_input() -> str:
+    with open(sys.argv[1], "r") as f:
+        return f.read()
 
 
 def read_board(path: str) -> Board:
@@ -34,3 +42,7 @@ def ns(b: Board, x: int, y: int) -> Iterator[tuple[int, int]]:
             (i, j) != (x, y)
         )
     )
+
+
+def mul(ns: list[int]) -> int:
+    return reduce(lambda a, b: a * b, ns)
