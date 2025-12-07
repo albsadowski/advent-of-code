@@ -12,13 +12,22 @@ def read_input() -> str:
         return f.read()
 
 
-def read_board(path: str) -> Board:
-    with open(path, "r") as f:
+def read_board() -> Board:
+    with open(sys.argv[1], "r") as f:
         return [[c for c in l.strip()] for l in f.readlines()]
 
 
 def shape(board: Board) -> tuple[int, int]:
     return len(board[0]), len(board)
+
+
+def find_start(board: Board, mark: str = "S") -> tuple[int, int]:
+    X, Y = shape(board)
+    for y in range(Y):
+        for x in range(X):
+            if board[y][x] == mark:
+                return (x, y)
+    raise Exception("start point not found")
 
 
 def iter_board(board: Board) -> Iterator[tuple[int, int]]:

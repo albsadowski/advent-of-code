@@ -1,7 +1,5 @@
 #!/usr/bin/evn python3
 
-import sys
-
 from aoc import Board, iter_board, ns, read_board, shape
 
 
@@ -34,7 +32,7 @@ def part_2(input: Board) -> int:
 
 
 def main():
-    input = read_board(sys.argv[1])
+    input = read_board()
     print(f"Part I: {part_1(input)}")
     print(f"Part II: {part_2(input)}")
 
